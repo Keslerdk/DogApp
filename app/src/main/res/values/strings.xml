@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DogsFacts</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dog_facts">Dog Facts</string>
+    <string name="dog_pictures">Dog Pictures</string>
+    <string name="dog_app">Dog App</string>
+</resources>

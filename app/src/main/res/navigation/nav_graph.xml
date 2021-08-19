@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.dogsfacts.overview.StartFragment"
+        android:label="@string/dog_app"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_dogFactsFragment"
+            app:destination="@id/dogFactsFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_dogPicFragment"
+            app:destination="@id/dogPicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogFactsFragment"
+        android:name="com.example.dogsfacts.overview.DogFactsFragment"
+        android:label="@string/dog_facts"
+        tools:layout="@layout/fragment_dog_facts" />
+    <fragment
+        android:id="@+id/dogPicFragment"
+        android:name="com.example.dogsfacts.overview.DogPicFragment"
+        android:label="@string/dog_pictures"
+        tools:layout="@layout/fragment_dog_pic" />
+</navigation>
