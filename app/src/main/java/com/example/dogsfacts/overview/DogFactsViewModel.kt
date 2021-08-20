@@ -5,13 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.dogsfacts.network.DogFact
 import com.example.dogsfacts.network.DogFactsApi
 import kotlinx.coroutines.launch
 
 class DogFactsViewModel : ViewModel() {
 
-    private var _text = MutableLiveData<String>()
-    val text: LiveData<String> = _text
+    private var _text = MutableLiveData<List<DogFact>>()
+    val text: LiveData<List<DogFact>> = _text
 
     init {
         getDogFacts()

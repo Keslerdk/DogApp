@@ -23,11 +23,14 @@ class DogFactsFragment : Fragment(R.layout.fragment_dog_facts) {
         val binding: FragmentDogFactsBinding = fragment
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        binding.dogFactsRecyclerView.adapter = DogFactsAdapter()
         return fragment.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
     }
 }
