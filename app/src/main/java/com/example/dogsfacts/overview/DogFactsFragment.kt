@@ -10,9 +10,10 @@ import androidx.lifecycle.ViewModel
 import com.example.dogsfacts.R
 import com.example.dogsfacts.databinding.FragmentDogFactsBinding
 
-class DogFactsFragment : Fragment(R.layout.fragment_dog_facts) {
+class DogFactsFragment : Fragment() {
 
     private val viewModel: DogFactsViewModel by viewModels()
+//    lateinit var binding: FragmentDogFactsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,10 +22,13 @@ class DogFactsFragment : Fragment(R.layout.fragment_dog_facts) {
     ): View? {
         val fragment = FragmentDogFactsBinding.inflate(inflater, container, false)
         val binding: FragmentDogFactsBinding = fragment
-        binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+//        binding = fragment
 
-        binding.dogFactsRecyclerView.adapter = DogFactsAdapter()
+        binding.apply {
+            lifecycleOwner = this@DogFactsFragment
+            dogFactsRecyclerView.adapter = DogFactsAdapter()
+        }
+        binding.viewModel = viewModel
         return fragment.root
     }
 

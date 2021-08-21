@@ -5,4 +5,6 @@
     <string name="dog_facts">Dog Facts</string>
     <string name="dog_pictures">Dog Pictures</string>
     <string name="dog_app">Dog App</string>
+
+    <string name="send_email">Hi! \n Look, I found an interesting fact about dogs: \n %1$s</string>
 </resources>
