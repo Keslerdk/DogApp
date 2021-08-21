@@ -1,5 +1,6 @@
 package com.example.dogsfacts.overview
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -24,11 +25,13 @@ class DogFactsAdapter():
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogFactsViewHolder {
-        return DogFactsViewHolder(DogFactsItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return DogFactsViewHolder(DogFactsItemBinding.inflate(LayoutInflater.from(parent.context),
+            parent, false))
     }
 
     override fun onBindViewHolder(holder: DogFactsViewHolder, position: Int) {
         val dogFact = getItem(position)
+        Log.d(TAG, "onBindViewHolder: ${position}")
         holder.bind(dogFact)
     }
 
