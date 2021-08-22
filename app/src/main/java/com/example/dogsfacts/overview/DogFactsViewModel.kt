@@ -28,7 +28,13 @@ class DogFactsViewModel : ViewModel() {
             } catch (e: Exception) {
                 Log.d(TAG, "getDogFacts: ${e}")
             }
+
         }
+    }
+
+    fun updateDogFacts(): Boolean {
+        Log.d(TAG, "updateDogFacts: refreshed!")
+        return true
     }
 
     companion object {

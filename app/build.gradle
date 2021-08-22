@@ -61,6 +61,7 @@ dependencies {
 
     //multidex
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
