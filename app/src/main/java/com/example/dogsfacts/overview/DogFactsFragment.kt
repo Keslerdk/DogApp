@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.example.dogsfacts.R
 import com.example.dogsfacts.databinding.FragmentDogFactsBinding
@@ -40,8 +42,18 @@ class DogFactsFragment : Fragment() {
 
         binding.swipeUpToRefresh.setOnRefreshListener {
 
-            viewModel.updateDogFacts()
-            binding.swipeUpToRefresh.isRefreshing = false
+            viewModel.getDogFacts()
+
+            viewModel.status.observe(viewLifecycleOwner, Observer {
+                when (it) {
+                    DogFactsApiStatus.DONE -> {
+                        binding.swipeUpToRefresh.isRefreshing = false
+                        Log.d("u", "onViewCreated: refreshed")
+                    }
+                    else -> print("adv")
+                }
+            })
+
         }
     }
 }
