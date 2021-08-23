@@ -1,29 +1,27 @@
 package com.example.dogsfacts.overview
 
+import android.graphics.Color
 import android.os.Bundle
+import android.provider.CalendarContract
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import com.example.dogsfacts.R
 import com.example.dogsfacts.databinding.FragmentDogFactsBinding
 
 class DogFactsFragment : Fragment() {
 
     private val viewModel: DogFactsViewModel by viewModels()
-    lateinit var binding: FragmentDogFactsBinding
+    private lateinit var binding: FragmentDogFactsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val fragment = FragmentDogFactsBinding.inflate(inflater, container, false)
 //        val binding: FragmentDogFactsBinding = fragment
         binding = fragment
@@ -40,11 +38,13 @@ class DogFactsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.swipeUpToRefresh.setColorSchemeColors(this.resources.getColor(R.color.orange))
+
         binding.swipeUpToRefresh.setOnRefreshListener {
 
             viewModel.getDogFacts()
 
-            viewModel.status.observe(viewLifecycleOwner, Observer {
+            viewModel.status.observe(viewLifecycleOwner, {
                 when (it) {
                     DogFactsApiStatus.DONE -> {
                         binding.swipeUpToRefresh.isRefreshing = false
