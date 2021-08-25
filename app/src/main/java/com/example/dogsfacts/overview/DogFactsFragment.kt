@@ -1,8 +1,6 @@
 package com.example.dogsfacts.overview
 
-import android.graphics.Color
 import android.os.Bundle
-import android.provider.CalendarContract
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.dogsfacts.R
 import com.example.dogsfacts.databinding.FragmentDogFactsBinding
+import com.example.dogsfacts.overview.model.DogFactsAdapter
+import com.example.dogsfacts.overview.model.DogFactsApiStatus
+import com.example.dogsfacts.overview.model.DogFactsViewModel
 
 class DogFactsFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.example.dogsfacts.overview
+package com.example.dogsfacts.overview.model
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -24,7 +24,8 @@ class DogPicViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 val listResult = DogPictureApi.retrofitService.getDogPicture()
-                Log.d(Companion.TAG, "getDogPictures: ${listResult}")
+                Log.d(TAG, "getDogPictures: ${listResult}")
+                _data.value = listResult
             } catch (e: Exception) {
                 Log.d(TAG, "getDogPictures: smth gone wrong")
             }

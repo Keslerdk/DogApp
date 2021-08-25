@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.dogsfacts.overview.DogFactsViewModel" />
+            type="com.example.dogsfacts.overview.model.DogFactsViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -22,7 +22,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/dog_facts_recycler_view"
-                listData="@{viewModel.text}"
+                factListData="@{viewModel.text}"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:clipToPadding="false"

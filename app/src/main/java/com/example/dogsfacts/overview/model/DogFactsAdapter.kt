@@ -1,4 +1,4 @@
-package com.example.dogsfacts.overview
+package com.example.dogsfacts.overview.model
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
