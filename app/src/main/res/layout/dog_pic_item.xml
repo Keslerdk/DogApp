@@ -8,20 +8,15 @@
             type="String" />
     </data>
 
+
     <ImageView
         android:id="@+id/image_view"
         imageUrl="@{photo}"
-        android:adjustViewBounds="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:padding="2dp"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-<!--    <TextView-->
-<!--        android:padding="8dp"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@{photo}"-->
-<!--        />-->
 </layout>

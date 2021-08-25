@@ -9,10 +9,15 @@ import com.example.dogsfacts.network.DogPicture
 import com.example.dogsfacts.network.DogPictureApi
 import kotlinx.coroutines.launch
 
+enum class DogPicApiStatus {LOADING, DONE, ERROR}
+
 class DogPicViewModel: ViewModel() {
 
     private  var _data = MutableLiveData<DogPicture>()
     val data: LiveData<DogPicture> = _data
+
+    private var _status = MutableLiveData<DogPicApiStatus>()
+    val status : LiveData<DogPicApiStatus> = _status
 
     init {
         getDogPictures()
@@ -20,14 +25,16 @@ class DogPicViewModel: ViewModel() {
     }
 
     fun getDogPictures() {
-        Log.d(TAG, "initialized!")
+
+        _status.value = DogPicApiStatus.LOADING
+
         viewModelScope.launch {
             try {
-                val listResult = DogPictureApi.retrofitService.getDogPicture()
-                Log.d(TAG, "getDogPictures: ${listResult}")
-                _data.value = listResult
+                _data.value = DogPictureApi.retrofitService.getDogPicture()
+                _status.value = DogPicApiStatus.DONE
             } catch (e: Exception) {
                 Log.d(TAG, "getDogPictures: smth gone wrong")
+                _status.value = DogPicApiStatus.ERROR
             }
 
         }
