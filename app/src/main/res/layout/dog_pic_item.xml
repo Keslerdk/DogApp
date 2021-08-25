@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <variable
@@ -7,15 +8,20 @@
             type="String" />
     </data>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/image_view"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--    </ImageView>-->
-    <TextView
-        android:padding="8dp"
+    <ImageView
+        android:id="@+id/image_view"
+        imageUrl="@{photo}"
+        android:adjustViewBounds="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{photo}"/>
+        android:padding="2dp"
+        android:scaleType="fitCenter"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+<!--    <TextView-->
+<!--        android:padding="8dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@{photo}"-->
+<!--        />-->
 </layout>

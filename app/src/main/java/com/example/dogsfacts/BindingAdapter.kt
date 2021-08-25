@@ -1,7 +1,10 @@
 package com.example.dogsfacts
 
+import android.widget.ImageView
+import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.dogsfacts.network.DogFact
 import com.example.dogsfacts.overview.model.DogFactsAdapter
 import com.example.dogsfacts.overview.model.DogPicAdapter
@@ -17,4 +20,12 @@ fun bindRecyclerView(recyclerView: RecyclerView,
 fun bindPicRecyclerView(recyclerView: RecyclerView, data: List<String>?) {
     val adapter = recyclerView.adapter as DogPicAdapter
     adapter.submitList(data)
+}
+
+@BindingAdapter("imageUrl")
+fun bindImageView(imageView: ImageView, imgUrl: String? ) {
+    imgUrl?.let{
+        val imgUri = it.toUri().buildUpon().scheme("https").build()
+        imageView.load(imgUri) {}
+    }
 }
